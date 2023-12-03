@@ -1,14 +1,5 @@
-<div style="display: flex; width: 100%; justify-content: space-evenly; margin-bottom: 20px;">
-    <div>
-        <img src="https://lp.dio.me/wp-content/uploads/2023/04/diologo.png" height=70 style="">
-    </div>
-    <div>
-        <img src="https://hermes.dio.me/tracks/6bb40420-5f89-4902-8df7-3399674d9d84.png" height=70>
-    </div>
-    <div>
-        <img src="https://seeklogo.com/images/A/avanade-logo-60078FCF19-seeklogo.com.png" height=70>
-    </div>
-</div>
+
+<img src="https://hermes.dio.me/tracks/6bb40420-5f89-4902-8df7-3399674d9d84.png" height=100>
 
 # Sistema de Estacionamento
 
