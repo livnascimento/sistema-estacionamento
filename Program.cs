@@ -27,42 +27,54 @@ internal class Program
         Console.WriteLine("1- Adicionar Carro.");
         Console.WriteLine("2- Remover Carro.");
         Console.WriteLine("3- Listar Carros.");
-        Console.WriteLine("4- Encerrar o programa.");
+        Console.WriteLine("4- Fechar caixa.");
 
         opcao = Console.ReadLine();
 
         switch (opcao)
         {
             case "1":
+                Console.Clear();
                 Console.WriteLine("Insira a placa do veículo a ser adicionado.");
                 veiculo = Console.ReadLine();
                 estacionamento.AdicionarVeiculo(veiculo);
-                Console.WriteLine("Veículo adicionado.");
-                Thread.Sleep(3000);
+                Console.WriteLine("Pressione qualquer tecla para continuar...");
+                Console.ReadKey();
+                Console.Clear();
                 Menu();
                 break;
             case "2":
+                Console.Clear();
                 Console.WriteLine("Insira a placa do veículo a ser removido.");
                 veiculo = Console.ReadLine();
                 Console.WriteLine("Quantas horas o veículo permaneceu no estacionamento?");
                 int horas = int.Parse(Console.ReadLine());
-                double total = estacionamento.CalcularTotal(horas);
-                estacionamento.RemoverVeiculo(veiculo);
-                Console.WriteLine($"Veículo removido, o total a pagar é de: {total:C}");
-                Thread.Sleep(3000);
+                estacionamento.RemoverVeiculo(veiculo, horas);
+                Console.WriteLine("Pressione qualquer tecla para continuar...");
+                Console.ReadKey();
+                Console.Clear();
                 Menu();
                 break;
             case "3":
+                Console.Clear();
                 Console.WriteLine("------- Veículos -------");
                 estacionamento.ListarVeiculos();
-                Thread.Sleep(3000);
+                Console.WriteLine("Pressione qualquer tecla para continuar...");
+                Console.ReadKey();
+                Console.Clear();
                 Menu();
                 break;
             case "4":
-                System.Environment.Exit(1);
+                estacionamento.FecharCaixa();
+                Console.Clear();
+                Menu();
                 break;
             default:
                 Console.WriteLine("Opção inválida.");
+                Console.WriteLine("Pressione qualquer tecla para continuar...");
+                Console.ReadKey();
+                Console.Clear();
+                Menu();
                 break;
         }
     }
