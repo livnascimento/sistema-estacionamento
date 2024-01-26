@@ -1,26 +1,119 @@
-﻿@{
+﻿@model IEnumerable<sistema_estacionamento.Entities.Vaga>
+
+@{
     ViewData["Title"] = "Home";
+
+    int contador = 1, aux = 1, top = 235;
+
+    int disponiveis = Model.Count(vaga => !vaga.Ocupada);
+    int ocupadas = Model.Count(vaga => vaga.Ocupada);
 }
 
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 3px 0px;
+        grid-auto-flow: row dense;
+        max-width: 100wh;
+    }
+
+    .column-1 {
+        left: 255px;
+    }
+
+    .column-2 {
+        left: 315px;
+    }
+
+    .column-3 {
+        left: 450px;
+    }
+
+    .column-4 {
+        left: 510px;
+    }
+
+    .column-5 {
+        left: 645px;
+    }
+
+    .column-6 {
+        left: 705px;
+    }
+
+    .column-7 {
+        left: 840px;
+    }
+
+    .column-8 {
+        left: 900px;
+    }
+
+    .column-9 {
+        left: 1035px;
+    }
+
+    .column-10 {
+        left: 1095px;
+    }
+
+</style>
+
 <div class="container">
-    <div class="navbar mt-4">
-        <div class="btn-group">
-            <a href="#" class="btn btn-success" aria-current="page">Térreo</a>
-            <a href="#" class="btn btn-success">P1</a>
-            <a href="#" class="btn btn-success">P2</a>
+    <div class="d-flex mt-3">
+        <div>
+            <h3 class="text-secondary">Visualização das vagas</h3>
         </div>
-        <div class="d-flex ms-auto">
+        <div class="d-flex ms-auto text-secondary">
             <div class="filled">
-                <i class="bi bi-circle-fill text-success"></i>
-                <span class="ms-1">ocupadas</span>
+                <i class="bi bi-circle-fill text-secondary"></i>
+                <span class="ms-1">@(ocupadas) ocupadas</span>
             </div>
             <div class="available ms-3">
-                <i class="bi bi-circle-fill text-secondary"></i>
-                <span class="ms-1">disponíveis</span>
+                <i class="bi bi-circle-fill text-success"></i>
+                <span class="ms-1">@(disponiveis) disponíveis</span>
             </div>
         </div>
     </div>
-    <section class="overflow-x-auto">
-        
+    <section class=" my-5">
+        <p class="position-absolute text-secondary user-select-none" style="writing-mode: vertical-lr; top: 160px;">
+            Entrada
+        </p>
+        <p class="position-absolute text-secondary user-select-none" style="writing-mode: vertical-lr; top: 575px;">
+            Saída
+        </p>
+        <div class="grid-container overflow-x-scroll mt-5 pt-5">
+            @foreach (var vaga in Model)
+            {
+                <div class="position-absolute column-@aux" style="top: @(top)px">
+                    @if (vaga.Ocupada)
+                    {
+                        <svg width="45" height="25">
+                            <rect width="45" height="25" rx="5" ry="5" style="fill:rgb(108, 117, 125)">
+                        </svg>
+                    }
+                    else
+                    {
+                        <svg width="45" height="25">
+                            <rect width="45" height="25" rx="5" ry="5" style="fill:rgb(25, 135, 84)">
+                        </svg>
+                    }
+                </div>
+
+                @if (true)
+                {
+                    contador++;
+                    top += 32;
+                }
+
+                @if (contador == 11)
+                {
+                    contador = 1;
+                    aux++;
+                    top = 235;
+                }
+            }
+        </div>
     </section>
 </div>

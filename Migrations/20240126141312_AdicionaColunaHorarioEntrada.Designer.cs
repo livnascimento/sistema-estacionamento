@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sistema_estacionamento.Context;
 
@@ -11,9 +12,11 @@ using sistema_estacionamento.Context;
 namespace sistema_estacionamento.Migrations
 {
     [DbContext(typeof(EstacionamentoContext))]
-    partial class EstacionamentoContextModelSnapshot : ModelSnapshot
+    [Migration("20240126141312_AdicionaColunaHorarioEntrada")]
+    partial class AdicionaColunaHorarioEntrada
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

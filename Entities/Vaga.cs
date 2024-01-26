@@ -8,7 +8,6 @@ namespace sistema_estacionamento.Entities
     public class Vaga
     {
         public int Id { get; set; }
-        public int Piso { get; set; }
         public bool Ocupada { get; set; }
     }
 }

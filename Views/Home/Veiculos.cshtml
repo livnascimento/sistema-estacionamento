@@ -1,6 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Lista de veículos";
-}
-<h1>@ViewData["Title"]</h1>
+﻿@model IEnumerable<sistema_estacionamento.Entities.Veiculo>
 
-<p>Use this page to detail your site's privacy policy.</p>
+@{
+    ViewData["Title"] = "Listagem de Veículos";
+}
+
+<h2 class="my-5">Veículos estacionados</h2>
+
+<table class="table table-striped overflow-x-auto">
+    <thead>
+        <tr>
+            <th>
+                Placa
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th>
+                Vaga
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var veiculo in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => veiculo.Placa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => veiculo.Tipo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => veiculo.VagaId)
+                    </td>
+                    <td>
+                        <a asp-controller="Home" asp-action="Remover" asp-route-id="@veiculo.Id" class="btn btn-danger text-decoration-none">
+                            Remover
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>

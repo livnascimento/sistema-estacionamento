@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
     <meta charset="utf-8" />
@@ -9,41 +9,38 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/sistema_estacionamento.styles.css" asp-append-version="true" />
+
 </head>
 
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-ligth border-bottom align-items-center"
-            aria-label="Eleventh navbar example">
-            <div class="container">
-                <a class="navbar-brand text-dark d-flex align-items-center mb-3 mb-md-0 me-md-auto" href="#">
-                    <img src="./parking-lot.png" alt="">
-                    <span class="ms-3">minha vaguinha</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="d-flex flex-column h-100">
+    <header class="py-3 mb-3 border-bottom">
+        <div class="container d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+            <a class="navbar-brand text-dark d-flex align-items-center mb-3 mb-md-0 me-md-auto" asp-controller="Home"
+                asp-action="Index">
+                <img src="~/parking-lot.png" asp-append-version="true" alt="">
+                <span class="ms-3">minha vaguinha</span>
+            </a>
 
-                <div class="collapse navbar-collapse" id="navbarsExample09">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <div class="ms-auto">
+
+                <div class="flex-shrink-0 dropdown">
+                    <a href="#" class="d-block btn btn-success text-decoration-none dropdown-toggle"
+                        data-bs-toggle="dropdown" aria-expanded="false" id="acoes">
+                        <i class="bi bi-plus-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow">
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Adicionar">Adicionar
+                                veículo</a></li>
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Veiculos">Listar veículos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
-                                asp-action="Veiculos">Lista de Veículos</a>
+                        <li>
+                            <hr class="dropdown-divider">
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="NovoVeiculo">
-                                <button class="btn btn-success">+ Adicionar veículo</button>
-                            </a>
-                        </li>
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Encerrar">Encerrar sistema</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
 
     <div class="container">
@@ -60,7 +57,6 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
