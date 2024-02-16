@@ -1,0 +1,35 @@
+@model sistema_estacionamento.Models.InfoVeiculo;
+
+@{
+    ViewData["Title"] = "Adicionar veículo";
+}
+
+<div class="h-100 d-flex align-items-center justify-content-center container">
+    <div class="col-md-8">
+        <form asp-action="Adicionar">
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Placa" class="form-label">Placa</label>
+                    <input asp-for="Placa" type="text" class="form-control" />
+                </div>
+                <div class="col mb-3">
+                    <label asp-for="Tipo" class="form-label">Tipo de veículo</label>
+                    <select asp-for="Tipo" class="form-select" aria-label="Default select example">
+                        <option value="carro" selected>Carro</option>
+                        <option value="moto">Moto</option>
+                    </select>
+                </div>
+            </div>
+            <div class="text-muted">
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Vaga" class="form-label">Vaga</label>
+                    <select class="form-select" asp-for="Vaga" asp-items="@ViewBag.VagasDisponiveis"></select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success mt-3" value="Adicionar">Adicionar</button>
+        </form>
+    </div>
+</div>

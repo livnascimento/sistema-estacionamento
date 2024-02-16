@@ -12,6 +12,14 @@ Este é um sistema de estacionamento desenvolvido como um desafio prático no Bo
 - Listar veículos
 - Fechar caixa (verifica se o estacionamento está vazio, exibe o total apurado no dia e encerra o programa)
 
+## Preview
+
+![image](https://github.com/livnascimento/sistema-estacionamento/assets/51425339/254accc1-7a77-4b2f-8067-60a7fa3453d3)
+
+## Diagrama de casos de uso
+
+![](./diagrama-casos-de-uso.jpg)
+
 ## Requisitos
 
 - [.NET](https://dotnet.microsoft.com/download) instalado na máquina
@@ -25,7 +33,7 @@ Este é um sistema de estacionamento desenvolvido como um desafio prático no Bo
 
 2. Navegue até o diretório do projeto e execute:
    ```bash
-   dotnet run
+   dotnet run watch
    ```
 
 ## Configurações
